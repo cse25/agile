@@ -17,19 +17,19 @@ class App extends Component {
               { 
                 name: 'checkbox 2',
                 value: 'checkbox 2',
-                checked: true,
+                checked: false,
                 label: 'checkbox 2'
               },
               { 
                 name: 'checkbox 3',
                 value: 'checkbox 3',
-                checked: false,
+                checked: true,
                 label: 'checkbox 3'
               },
               { 
                 name: 'checkbox 4',
                 value: 'checkbox 4',
-                checked: false,
+                checked: true,
                 label: 'checkbox 4'
               },
               { 
