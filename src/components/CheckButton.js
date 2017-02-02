@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class CheckButton extends Component {
   constructor(props) {
@@ -8,8 +8,14 @@ class CheckButton extends Component {
     this.onToggle = this.onToggle.bind(this); 
   }
 
+  static propTypes = {
+    name: PropTypes.string,
+    checked: PropTypes.bool,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    onChange: PropTypes.func
+  }
+
   onToggle() {
-    console.log(!this.state.checked)
     this.setState({ checked: !this.state.checked })
   }
 

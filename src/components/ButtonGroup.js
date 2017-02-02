@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import CheckButton from './CheckButton';
 import RadioButton from './RadioButton';
 
@@ -10,12 +10,20 @@ class ButtonGroup extends Component {
     this.handleRadioToggle = this.handleRadioToggle.bind(this); 
   }
 
+  static propTypes = {
+    name: PropTypes.string,
+    options: PropTypes.array,
+    multiple: PropTypes.bool,
+    implyAll: PropTypes.bool,
+    implyNone: PropTypes.bool,
+    onChange: PropTypes.func
+  }
+
   componentWillMount() {
     this.setState({ title: this.props.groupLabel })
   }
 
   handleRadioToggle(event) {
-    console.log(event.target.value);
     this.setState({ selectedRadio: event.target.value });
   }
 
@@ -23,7 +31,7 @@ class ButtonGroup extends Component {
     if (this.props.multiple) {
       if (this.props.implyAll) {
         return [
-          <CheckButton label={'all'} key="0" disabled checked />, 
+          <CheckButton label="all" key="0" disabled checked />, 
             this.props.options.map((item) => {
               return (
                 <CheckButton
@@ -39,7 +47,7 @@ class ButtonGroup extends Component {
         ]
       } else if (this.props.implyNone) {
         return [
-          <CheckButton label={'none'} key="0" disabled checked />, 
+          <CheckButton label="none" key="0" disabled checked />, 
             this.props.options.map((item) => {
               return (
                 <CheckButton

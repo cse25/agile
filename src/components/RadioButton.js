@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const RadioButton = (props) => {
   return (
@@ -14,6 +14,12 @@ const RadioButton = (props) => {
         </input>
       </div>
   )
+}
+
+RadioButton.propTypes = {
+  name: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  onChange: PropTypes.func
 }
 
 export default RadioButton
