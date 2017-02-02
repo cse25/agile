@@ -23,7 +23,7 @@ class ButtonGroup extends Component {
     if (this.props.multiple) {
       if (this.props.implyAll) {
         return [
-          <CheckButton label={'all'} key="*" disabled checked />, 
+          <CheckButton label={'all'} key="0" disabled checked />, 
             this.props.options.map((item) => {
               return (
                 <CheckButton
@@ -39,7 +39,7 @@ class ButtonGroup extends Component {
         ]
       } else if (this.props.implyNone) {
         return [
-          <CheckButton label={'none'} key="*" disabled checked />, 
+          <CheckButton label={'none'} key="0" disabled checked />, 
             this.props.options.map((item) => {
               return (
                 <CheckButton
