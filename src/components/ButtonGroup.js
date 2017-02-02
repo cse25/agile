@@ -10,7 +10,7 @@ class ButtonGroup extends Component {
     this.handleRadioToggle = this.handleRadioToggle.bind(this); 
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({ title: this.props.groupLabel })
   }
 
