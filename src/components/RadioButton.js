@@ -22,4 +22,4 @@ RadioButton.propTypes = {
   onChange: PropTypes.func
 }
 
-export default RadioButton
+export default RadioButton;
