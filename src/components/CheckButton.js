@@ -4,8 +4,12 @@ class CheckButton extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { checked: this.props.checked }   
+    this.state = { checked: false }   
     this.onToggle = this.onToggle.bind(this); 
+  }
+
+  componentWillMount() {
+    this.setState({ checked: this.props.checked });
   }
 
   static propTypes = {
