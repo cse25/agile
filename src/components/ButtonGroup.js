@@ -42,7 +42,9 @@ class ButtonGroup extends Component {
   }
 
   renderGroup() {
+    // CheckButton
     if (this.props.multiple) {
+      // All Checked
       if (this.props.implyAll) {
         return [
         <CheckBox key={0} label={"all"} checked={!this.state.groupTouched} />,
@@ -58,6 +60,7 @@ class ButtonGroup extends Component {
             )
           })
         ]
+        // None Checked
       } else if (this.props.implyNone) {
         return [
         <CheckBox key={0} label={"none"} checked={!this.state.groupTouched} />,
@@ -73,6 +76,7 @@ class ButtonGroup extends Component {
             )
           })
         ]
+        // CheckButtons - Specified in Options 
       } else {
         return this.props.options.map((item) => {
           return (
