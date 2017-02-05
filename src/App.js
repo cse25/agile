@@ -11,31 +11,6 @@ class App extends Component {
               { 
                 name: 'checkbox 1',
                 value: 'checkbox 1',
-                label: 'checkbox 1'
-              },
-              { 
-                name: 'checkbox 2',
-                value: 'checkbox 2',
-                label: 'checkbox 2'
-              },
-              { 
-                name: 'checkbox 3',
-                value: 'checkbox 3',
-                label: 'checkbox 3'
-              }
-            ]
-          }
-          multiple={true}
-          groupName={'imply all'}
-          groupLabel={'imply all'}
-          implyAll={true}
-        />
-        <ButtonGroup
-          options={
-            [
-              { 
-                name: 'checkbox 1',
-                value: 'checkbox 1',
                 checked: true,
                 label: 'checkbox 1'
               },
@@ -56,6 +31,31 @@ class App extends Component {
           multiple={true}
           groupName={'mixed checkboxes'}
           groupLabel={'mixed checkboxes'}
+        />
+        <ButtonGroup
+          options={
+            [
+              { 
+                name: 'checkbox 1',
+                value: 'checkbox 1',
+                label: 'checkbox 1'
+              },
+              { 
+                name: 'checkbox 2',
+                value: 'checkbox 2',
+                label: 'checkbox 2'
+              },
+              { 
+                name: 'checkbox 3',
+                value: 'checkbox 3',
+                label: 'checkbox 3'
+              }
+            ]
+          }
+          multiple={true}
+          groupName={'imply all'}
+          groupLabel={'imply all'}
+          implyAll={true}
         />
         <ButtonGroup
           options={
