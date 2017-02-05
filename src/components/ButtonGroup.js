@@ -1,82 +1,96 @@
-import React, { Component, PropTypes } from 'react';
-import CheckButton from './CheckButton';
+import React, { Component } from 'react';
+import CheckBox from './CheckBox';
 import RadioButton from './RadioButton';
 
 class ButtonGroup extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { selectedRadio: null, title: '' }
-    this.handleRadioToggle = this.handleRadioToggle.bind(this); 
-  }
+    this.state = {
+      groupTouched: false,
+      selectedRadio: null
+    }
 
-  static propTypes = {
-    name: PropTypes.string,
-    options: PropTypes.array,
-    multiple: PropTypes.bool,
-    implyAll: PropTypes.bool,
-    implyNone: PropTypes.bool,
-    onChange: PropTypes.func
+    this.toggleButton = this.toggleButton.bind(this);
   }
 
   componentWillMount() {
-    this.setState({ title: this.props.groupLabel })
+    this.props.options.map((item) => {
+      if (this.props.implyAll) {
+        this.setState({ [item.value]: true });
+      } else if (this.props.implyNone) {
+        this.setState({ [item.value]: false });
+      } else {
+        this.setState({ [item.value]: item.checked });
+      }
+    })
   }
 
-  handleRadioToggle(event) {
-    this.setState({ selectedRadio: event.target.value });
+  toggleButton(event) {
+    // Toggle RadioButton
+    if (!this.props.multiple) {
+      this.setState({ selectedRadio: event.target.value});
+    }
+    // Toggle CheckBox
+    const checkbox = event.target.value;
+    this.setState({ groupTouched: true });
+    if (this.state[checkbox]) {
+      this.setState({ [checkbox]: false });
+    } else {
+      this.setState({ [checkbox]: true });
+    }
   }
 
-  renderButtons() {
+  renderGroup() {
+    // CheckButton
     if (this.props.multiple) {
+      // All Checked
       if (this.props.implyAll) {
         return [
-          <CheckButton label="all" key="0" disabled checked />, 
-            this.props.options.map((item) => {
-              return (
-                <CheckButton
-                  key={item.name}
-                  name={item.name}
-                  value={item.value}
-                  label={item.label}
-                  checked={true}
-                  disabled={true}
-                />
-              )
-            })
+        <CheckBox key={0} label={"all"} checked={!this.state.groupTouched} />,
+          this.props.options.map((item) => {
+            return (
+              <CheckBox
+                key={item.name}
+                name={item.name}
+                value={item.value}
+                checked={this.state[item.value]}
+                label={item.label}
+              />
+            )
+          })
         ]
+        // None Checked
       } else if (this.props.implyNone) {
         return [
-          <CheckButton label="none" key="0" disabled checked />, 
-            this.props.options.map((item) => {
-              return (
-                <CheckButton
-                  key={item.name}
-                  name={item.name}
-                  value={item.value}
-                  label={item.label}
-                  checked={false}
-                  disabled={true}
-                />
-              )
-            })
+        <CheckBox key={0} label={"none"} checked={!this.state.groupTouched} />,
+          this.props.options.map((item) => {
+            return (
+              <CheckBox
+                key={item.name}
+                name={item.name}
+                value={item.value}
+                checked={this.state[item.value]}
+                label={item.label}
+              />
+            )
+          })
         ]
+        // CheckButtons - Specified in Options 
       } else {
         return this.props.options.map((item) => {
           return (
-            <CheckButton
+            <CheckBox
               key={item.name}
               name={item.name}
               value={item.value}
-              checked={item.checked}
+              checked={this.state[item.value]}
               label={item.label}
-              onChange={item.onChange}
             />
           )
         })
       }
-    }
-
+    } 
     if (!this.props.multiple) {
       return this.props.options.map((item) => {
         return (
@@ -86,18 +100,18 @@ class ButtonGroup extends Component {
             value={item.value}
             checked={this.state.selectedRadio === item.value}
             label={item.label}
-            onChange={this.handleRadioToggle}
           />
         )
       })
     }
   }
-  
+
   render() {
     return (
-      <div>
-        <h2>{this.state.title}</h2>
-        {this.renderButtons()}
+      <div
+        onChange={this.toggleButton}>
+        <h2>{this.props.groupLabel}</h2>
+        {this.renderGroup()}
       </div>
     )
   }

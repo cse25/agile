@@ -5,7 +5,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <ButtonGroup 
+        <ButtonGroup
           options={
             [
               { 
@@ -25,24 +25,62 @@ class App extends Component {
                 value: 'checkbox 3',
                 checked: true,
                 label: 'checkbox 3'
-              },
-              { 
-                name: 'checkbox 4',
-                value: 'checkbox 4',
-                checked: true,
-                label: 'checkbox 4'
-              },
-              { 
-                name: 'checkbox 5',
-                value: 'checkbox 5',
-                checked: false,
-                label: 'checkbox 5'
               }
             ]
           }
           multiple={true}
-          groupName={'button group 1'}
-          groupLabel={'button group 1'}
+          groupName={'mixed checkboxes'}
+          groupLabel={'mixed checkboxes'}
+        />
+        <ButtonGroup
+          options={
+            [
+              { 
+                name: 'checkbox 1',
+                value: 'checkbox 1',
+                label: 'checkbox 1'
+              },
+              { 
+                name: 'checkbox 2',
+                value: 'checkbox 2',
+                label: 'checkbox 2'
+              },
+              { 
+                name: 'checkbox 3',
+                value: 'checkbox 3',
+                label: 'checkbox 3'
+              }
+            ]
+          }
+          multiple={true}
+          groupName={'imply all'}
+          groupLabel={'imply all'}
+          implyAll={true}
+        />
+        <ButtonGroup
+          options={
+            [
+              { 
+                name: 'checkbox 1',
+                value: 'checkbox 1',
+                label: 'checkbox 1'
+              },
+              { 
+                name: 'checkbox 2',
+                value: 'checkbox 2',
+                label: 'checkbox 2'
+              },
+              { 
+                name: 'checkbox 3',
+                value: 'checkbox 3',
+                label: 'checkbox 3'
+              }
+            ]
+          }
+          multiple={true}
+          groupName={'imply none'}
+          groupLabel={'imply none'}
+          implyNone={true}
         />
         <ButtonGroup 
           options={
@@ -65,73 +103,8 @@ class App extends Component {
             ]
           }
           multiple={false}
-          groupName={'button group 2'}
-          groupLabel={'button group 2'}
-        />
-        <ButtonGroup 
-          options={
-            [
-              { 
-                name: 'checkbox 1',
-                value: 'checkbox 1',
-                label: 'checkbox 1'
-              },
-              { 
-                name: 'checkbox 2',
-                value: 'checkbox 2',
-                label: 'checkbox 2'
-              },
-              { 
-                name: 'checkbox 3',
-                value: 'checkbox 3',
-                label: 'checkbox 3'
-              },
-              { 
-                name: 'checkbox 4',
-                value: 'checkbox 4',
-                label: 'checkbox 4'
-              },
-              { 
-                name: 'checkbox 5',
-                value: 'checkbox 5',
-                label: 'checkbox 5'
-              }
-            ]
-          }
-          multiple={true}
-          groupName={'button group 3'}
-          groupLabel={'button group 3'}
-          implyAll={true}
-        />
-        <ButtonGroup 
-          options={
-            [
-              { 
-                name: 'checkbox 1',
-                value: 'checkbox 1',
-                label: 'checkbox 1'
-              },
-              { 
-                name: 'checkbox 2',
-                value: 'checkbox 2',
-                label: 'checkbox 2'
-              },
-              { 
-                name: 'checkbox 3',
-                value: 'checkbox 3',
-                label: 'checkbox 3'
-              },
-              { 
-                name: 'checkbox 4',
-                value: 'checkbox 4',
-                label: 'checkbox 4'
-              }
-            ]
-          }
-          multiple={true}
-          groupName={'button group 4'}
-          groupLabel={'button group 4'}
-          implyNone={true}
+          groupName={'radio group'}
+          groupLabel={'radio group'}
         />
       </div>
     );
