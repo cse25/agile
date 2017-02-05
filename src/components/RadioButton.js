@@ -9,7 +9,6 @@ const RadioButton = (props) => {
           value={props.value}
           checked={props.checked} 
           label={props.label}
-          onChange={props.onChange}
           type="radio">
         </input>
       </div>
@@ -22,4 +21,4 @@ RadioButton.propTypes = {
   onChange: PropTypes.func
 }
 
-export default RadioButton;
+export default RadioButton
