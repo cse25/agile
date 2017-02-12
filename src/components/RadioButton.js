@@ -6,11 +6,11 @@ const RadioButton = (props) => {
       { props.label }
         <input
           type="radio"
+          checked={props.checked} 
+          label={props.label}
           name={props.name}
           value={props.value}
-          checked={props.checked} 
-          label={props.label}>
-        </input>
+        />
       </div>
   )
 }
