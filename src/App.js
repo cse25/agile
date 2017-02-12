@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import ButtonGroup from './components/ButtonGroup';
 
 class App extends Component {
+  myFunc() {
+    console.log('hello');
+  }
+
   render() {
     return (
       <div>
@@ -31,6 +35,7 @@ class App extends Component {
           multiple={true}
           groupName={'mixed checkboxes'}
           groupLabel={'mixed checkboxes'}
+          passedFunc={this.myFunc}
         />
         <ButtonGroup
           options={

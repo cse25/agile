@@ -1,24 +1,18 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 const RadioButton = (props) => {
   return (
     <div>
       { props.label }
         <input
-          name={props.name}
-          value={props.value}
+          type="radio"
           checked={props.checked} 
           label={props.label}
-          type="radio">
-        </input>
+          name={props.name}
+          value={props.value}
+        />
       </div>
   )
 }
 
-RadioButton.propTypes = {
-  name: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  onChange: PropTypes.func
-}
-
-export default RadioButton
+export default RadioButton;

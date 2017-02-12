@@ -11,7 +11,7 @@ class ButtonGroup extends Component {
       selectedRadio: null
     }
 
-    this.toggleButton = this.toggleButton.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillMount() {
@@ -26,7 +26,10 @@ class ButtonGroup extends Component {
     })
   }
 
-  toggleButton(event) {
+  handleChange(event) {
+    if (this.props.passedFunc) {
+      this.props.passedFunc();
+    }
     // Toggle RadioButton
     if (!this.props.multiple) {
       this.setState({ selectedRadio: event.target.value});
@@ -109,7 +112,7 @@ class ButtonGroup extends Component {
   render() {
     return (
       <div
-        onChange={this.toggleButton}>
+        onChange={this.handleChange}>
         <h2>{this.props.groupLabel}</h2>
         {this.renderGroup()}
       </div>
